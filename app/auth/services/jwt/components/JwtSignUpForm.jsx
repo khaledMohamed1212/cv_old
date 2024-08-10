@@ -21,7 +21,7 @@ const schema = z
 			.nonempty('Please enter your password.')
 			.min(8, 'Password is too short - should be 8 chars minimum.'),
 		passwordConfirm: z.string().nonempty('Password confirmation is required'),
-		acceptTermsConditions: z.boolean().refine((val) => val === true, 'The terms and conditions must be accepted.')
+		// acceptTermsConditions: z.boolean().refine((val) => val === true, 'The terms and conditions must be accepted.')
 	})
 	.refine((data) => data.password === data.passwordConfirm, {
 		message: 'Passwords must match',
@@ -141,7 +141,7 @@ function JwtSignUpForm() {
 				)}
 			/>
 
-			<Controller
+			{/* <Controller
 				name="acceptTermsConditions"
 				control={control}
 				render={({ field }) => (
@@ -161,7 +161,7 @@ function JwtSignUpForm() {
 						<FormHelperText>{errors?.acceptTermsConditions?.message}</FormHelperText>
 					</FormControl>
 				)}
-			/>
+			/> */}
 
 			<Button
 				variant="contained"

@@ -19,18 +19,18 @@ const tabs = [
 		logo: 'assets/images/logo/jwt.svg',
 		logoClass: 'h-40 p-4 bg-black rounded-12'
 	},
-	{
-		id: 'firebase',
-		title: 'Firebase',
-		logo: 'assets/images/logo/firebase.svg',
-		logoClass: 'h-40'
-	},
-	{
-		id: 'aws',
-		title: 'AWS',
-		logo: 'assets/images/logo/aws-amplify.svg',
-		logoClass: 'h-40'
-	}
+	// {
+	// 	id: 'firebase',
+	// 	title: 'Firebase',
+	// 	logo: 'assets/images/logo/firebase.svg',
+	// 	logoClass: 'h-40'
+	// },
+	// {
+	// 	id: 'aws',
+	// 	title: 'AWS',
+	// 	logo: 'assets/images/logo/aws-amplify.svg',
+	// 	logoClass: 'h-40'
+	// }
 ];
 
 /**
@@ -47,11 +47,11 @@ function SignUpPage() {
 		<div className="flex min-w-0 flex-1 flex-col items-center sm:flex-row sm:justify-center md:items-start md:justify-start">
 			<Paper className="h-full w-full px-16 py-8 ltr:border-r-1 rtl:border-l-1 sm:h-auto sm:w-auto sm:rounded-2xl sm:p-48 sm:shadow md:flex md:h-full md:w-1/2 md:items-center md:justify-end md:rounded-none md:p-64 md:shadow-none">
 				<div className="mx-auto w-full max-w-320 sm:mx-0 sm:w-320">
-					<img
+					{/* <img
 						className="w-48"
 						src="assets/images/logo/logo.svg"
 						alt="logo"
-					/>
+					/> */}
 
 					<Typography className="mt-32 text-4xl font-extrabold leading-tight tracking-tight">
 						Sign up
@@ -76,15 +76,15 @@ function SignUpPage() {
 							<Tab
 								onClick={() => handleSelectTab(item.id)}
 								key={item.id}
-								icon={
-									<img
-										className={item.logoClass}
-										src={item.logo}
-										alt={item.title}
-									/>
-								}
+								// icon={
+								// 	<img
+								// 		className={item.logoClass}
+								// 		src={item.logo}
+								// 		alt={item.title}
+								// 	/>
+								// }
 								className="min-w-0"
-								label={item.title}
+								// label={item.title}
 							/>
 						))}
 					</Tabs>
@@ -99,7 +99,7 @@ function SignUpPage() {
 				className="relative hidden h-full flex-auto items-center justify-center overflow-hidden p-64 md:flex lg:px-112"
 				sx={{ backgroundColor: 'primary.main' }}
 			>
-				<svg
+				{/* <svg
 					className="pointer-events-none absolute inset-0"
 					viewBox="0 0 960 540"
 					width="100%"
@@ -126,7 +126,7 @@ function SignUpPage() {
 							cy="491"
 						/>
 					</Box>
-				</svg>
+				</svg> */}
 				<Box
 					component="svg"
 					className="absolute -right-64 -top-64 opacity-20"
@@ -161,7 +161,7 @@ function SignUpPage() {
 					/>
 				</Box>
 
-				<div className="relative z-10 w-full max-w-2xl">
+				{/* <div className="relative z-10 w-full max-w-2xl">
 					<div className="text-7xl font-bold leading-none text-gray-100">
 						<div>Welcome to</div>
 						<div>our community</div>
@@ -188,7 +188,7 @@ function SignUpPage() {
 							More than 17k people joined us, it's your turn
 						</div>
 					</div>
-				</div>
+				</div> */}
 			</Box>
 		</div>
 	);

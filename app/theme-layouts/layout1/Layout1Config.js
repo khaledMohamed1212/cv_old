@@ -14,18 +14,18 @@ const Layout1Config = {
 			open: true
 		},
 		toolbar: {
-			display: true,
+			display: false,
 			style: 'fixed'
 		},
 		footer: {
-			display: true,
+			display: false,
 			style: 'fixed'
 		},
 		leftSidePanel: {
-			display: true
+			display: false
 		},
 		rightSidePanel: {
-			display: true
+			display: false
 		}
 	},
 	form: {
