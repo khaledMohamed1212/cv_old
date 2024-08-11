@@ -17,6 +17,42 @@ const navigationConfig = [
 		type: 'item',
 		icon: 'heroicons-outline:star',
 		url: 'example'
-	}
+	},
+	{
+		id: 'apps',
+		title: 'Applications',
+		subtitle: 'Custom made application designs',
+		type: 'group',
+		icon: 'heroicons-outline:cube',
+		translate: 'APPLICATIONS',
+		children: [
+			{
+				id: 'apps.academy',
+				title: 'Academy',
+				type: 'item',
+				icon: 'heroicons-outline:academic-cap',
+				url: '/apps/academy',
+				translate: 'ACADEMY'
+			},
+			{
+				id: 'apps.calendar',
+				title: 'Calendar',
+				subtitle: '3 upcoming events',
+				type: 'item',
+				icon: 'heroicons-outline:calendar',
+				url: '/apps/calendar',
+				translate: 'CALENDAR'
+			},
+			{
+				id: 'apps.messenger',
+				title: 'Messenger',
+				type: 'item',
+				icon: 'heroicons-outline:chat-alt',
+				url: '/apps/messenger',
+				translate: 'MESSENGER'
+			},
+		]
+	},
+	
 ];
 export default navigationConfig;
