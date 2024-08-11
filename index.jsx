@@ -9,6 +9,11 @@ import App from './app/App';
 /**
  * The root element of the application.
  */
+
+// axios.defaults.baseURL = 'https://localhost:8000';
+// axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
 const container = document.getElementById('root');
 
 if (!container) {

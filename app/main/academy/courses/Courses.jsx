@@ -56,7 +56,7 @@ function Courses() {
 					return false;
 				}
 
-				if (hideCompleted && item.progress.completed > 0) {
+				if (hideCompleted && item.completed > 0) {
 					return false;
 				}
 
@@ -201,7 +201,7 @@ function Courses() {
 							/>
 						</div>
 
-						<FormControlLabel
+						{/* <FormControlLabel
 							label="Hide completed"
 							control={
 								<Switch
@@ -212,7 +212,7 @@ function Courses() {
 									name="hideCompleted"
 								/>
 							}
-						/>
+						/> */}
 					</div>
 					{filteredData &&
 						(filteredData.length > 0 ? (

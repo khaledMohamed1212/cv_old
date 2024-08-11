@@ -19,7 +19,7 @@ function CourseInfo(props) {
 			<div className="flex items-center justify-between mb-16">
 				<CourseCategory slug={course.category} />
 
-				{course.progress.completed > 0 && (
+				{course.completed > 0 && (
 					<FuseSvgIcon
 						className="text-green-600"
 						size={20}
@@ -55,7 +55,7 @@ function CourseInfo(props) {
 				</FuseSvgIcon>
 				<span className="whitespace-nowrap leading-none">{`${course.duration} minutes`}</span>
 			</Typography>
-			<Typography
+			{/* <Typography
 				className="flex items-center space-x-6 text-13 mt-8"
 				color="text.secondary"
 			>
@@ -66,12 +66,12 @@ function CourseInfo(props) {
 					heroicons-solid:academic-cap
 				</FuseSvgIcon>
 				<span className="whitespace-nowrap leading-none">
-					{course.progress.completed === 1 && 'Completed once'}
-					{course.progress.completed === 2 && 'Completed twice'}
-					{course.progress.completed > 2 && `Completed ${course.progress.completed} times`}
-					{course.progress.completed <= 0 && 'Never completed'}
+					{course.completed === 1 && 'Completed once'}
+					{course.completed === 2 && 'Completed twice'}
+					{course.completed > 2 && `Completed ${course.completed} times`}
+					{course.completed <= 0 && 'Never completed'}
 				</span>
-			</Typography>
+			</Typography> */}
 		</div>
 	);
 }

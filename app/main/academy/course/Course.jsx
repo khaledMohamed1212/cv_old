@@ -43,21 +43,21 @@ function Course() {
 		 * If the course is opened for the first time
 		 * Change ActiveStep to 1
 		 */
-		if (course && course?.progress?.currentStep === 0) {
-			updateCourse({ courseId, data: { progress: { currentStep: 1 } } });
+		if (course && course?.currentStep === 0) {
+			updateCourse({ courseId, data: {  currentStep: 1  } });
 		}
 	}, [course]);
 	useEffect(() => {
 		setLeftSidebarOpen(!isMobile);
 	}, [isMobile]);
-	const currentStep = course?.progress?.currentStep || 0;
+	const currentStep = course?.currentStep || 0;
 
 	function updateCurrentStep(index) {
 		if (course && (index > course.totalSteps || index < 0)) {
 			return;
 		}
 
-		updateCourse({ courseId, data: { progress: { currentStep: index } } });
+		updateCourse({ courseId, data: { currentStep: index  } });
 	}
 
 	function handleNext() {

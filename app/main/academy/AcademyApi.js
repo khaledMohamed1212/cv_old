@@ -9,16 +9,26 @@ const AcademyApi = apiService
 	.injectEndpoints({
 		endpoints: (build) => ({
 			getAcademyCourses: build.query({
-				query: () => ({ url: `/mock-api/academy/courses` }),
-				providesTags: ['academy_courses']
+				query: () => ({ 
+					url: `http://127.0.0.1:8000/academy/courses` 
+				}),
+				providesTags: ['academy_courses'],
+				async onQueryStarted(arg, { queryFulfilled }) {
+					try {
+						const { data } = await queryFulfilled;
+						console.log("Courses data:", data);
+					} catch (err) {
+						console.error("Error fetching courses:", err);
+					}
+				},
 			}),
 			getAcademyCourse: build.query({
-				query: (queryArg) => ({ url: `/mock-api/academy/courses/${queryArg.courseId}` }),
+				query: (queryArg) => ({ url: `http://127.0.0.1:8000/academy/courses/${queryArg.courseId}` }),
 				providesTags: ['academy_course']
 			}),
 			updateAcademyCourse: build.mutation({
 				query: (queryArg) => ({
-					url: `/mock-api/academy/courses/${queryArg.courseId}`,
+					url: `http://127.0.0.1:8000/academy/courses/${queryArg.courseId}/`,
 					method: 'PUT',
 					data: queryArg.data
 				}),
