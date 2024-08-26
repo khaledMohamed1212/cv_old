@@ -8,12 +8,10 @@ import SignOutConfig from '../main/sign-out/SignOutConfig';
 import Error404Page from '../main/404/Error404Page';
 import ExampleConfig from '../main/example/ExampleConfig';
 
-import AcademyAppConfig from '../main/academy/AcademyAppConfig';
-import CalendarAppConfig from '../main/calendar/CalendarAppConfig';
-import MessengerAppConfig from '../main/messenger/MessengerAppConfig';
+ 
 
 
-const routeConfigs = [ExampleConfig, SignOutConfig, SignInConfig, SignUpConfig,AcademyAppConfig,CalendarAppConfig,MessengerAppConfig];
+const routeConfigs = [ExampleConfig, SignOutConfig, SignInConfig, SignUpConfig];
 /**
  * The routes of the application.
  */
