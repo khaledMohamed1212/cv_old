@@ -5,9 +5,9 @@ const Layout1Config = {
 	title: 'Layout 1 - Vertical',
 	defaults: {
 		mode: 'container',
-		containerWidth: 1570,
+		containerWidth: 2570,
 		navbar: {
-			display: true,
+			display: false,
 			style: 'style-1',
 			folded: true,
 			position: 'left',
@@ -18,14 +18,14 @@ const Layout1Config = {
 			style: 'fixed'
 		},
 		footer: {
-			display: true,
+			display: false,
 			style: 'fixed'
 		},
 		leftSidePanel: {
-			display: true
+			display: false
 		},
 		rightSidePanel: {
-			display: true
+			display: false
 		}
 	},
 	form: {
