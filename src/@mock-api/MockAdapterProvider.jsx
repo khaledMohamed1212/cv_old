@@ -6,9 +6,6 @@ import apiService from 'app/store/apiService';
 import ExtendedMockAdapter from './ExtendedMockAdapter';
 import { authApiMocks } from './api/auth-api';
 
-import { messengerApiMocks } from './api/messenger-api';
-import { academyApiMocks } from './api/academy-api';
-import { calendarApiMocks } from './api/calendar-api';
 const mockAdapterOptions = {
 	delayResponse: 0
 };
@@ -23,10 +20,7 @@ function MockAdapterProvider(props) {
 	useEffect(() => {
 		const setupAllMocks = () => {
 			[
-				academyApiMocks,
 				authApiMocks,
-				calendarApiMocks,
-				messengerApiMocks,
 			].forEach((mockSetup) => {
 				mockSetup(mock);
 			});
