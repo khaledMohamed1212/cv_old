@@ -26,14 +26,6 @@ const navigationConfig = [
 				url: '/dashboards/project'
 			}
 		]
-	},
-	{
-		id: 'example-component',
-		title: 'Example',
-		translate: 'EXAMPLE',
-		type: 'item',
-		icon: 'heroicons-outline:star',
-		url: 'example'
 	}
 	
 ];

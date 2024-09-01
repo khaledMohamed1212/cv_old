@@ -9,18 +9,18 @@ import Box from '@mui/material/Box';
 function FuseSplashScreen() {
 	return (
 		<div id="fuse-splash-screen">
-			<div className="logo">
+			{/* <div className="logo">
 				<img
 					width="128"
 					src="assets/images/logo/logo.svg"
 					alt="logo"
 				/>
-			</div>
+			</div> */}
 			<Box
 				id="spinner"
 				sx={{
 					'& > div': {
-						backgroundColor: 'palette.secondary.main'
+						backgroundColor: 'palette.primary.main'
 					}
 				}}
 			>
