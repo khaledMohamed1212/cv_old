@@ -23,7 +23,7 @@ const navigationConfig = [
 				title: 'Project',
 				type: 'item',
 				icon: 'heroicons-outline:clipboard-check',
-				url: '/dashboards/project'
+				url: '/'
 			}
 		]
 	}

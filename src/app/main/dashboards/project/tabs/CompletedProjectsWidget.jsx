@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Typography, Card, CardContent, Grid, Icon, Box, Chip, Tabs, Tab } from '@mui/material';
+import { Typography, Card, CardContent, Grid, Icon, Box, Chip, Tabs, Tab, useMediaQuery, useTheme } from '@mui/material';
 import { styled } from '@mui/system';
 
 // Styled component for the section title with a line underneath
@@ -30,8 +30,33 @@ const TechnologyChip = styled(Chip)({
   backgroundColor: '#f0f0f0',
 });
 
+const StyledTabs = styled(Tabs)(({ theme }) => ({
+  [theme.breakpoints.down('sm')]: {
+    '& .MuiTabs-flexContainer': {
+      flexDirection: 'column',
+    },
+  },
+}));
+
+const StyledTab = styled(Tab)(({ theme }) => ({
+  [theme.breakpoints.down('sm')]: {
+    minHeight: 'auto',
+    padding: '12px 8px',
+    fontSize: '1.5rem',
+  },
+  textTransform: 'none',
+  fontWeight: 'bold',
+  minWidth: 'auto',
+  color: '#000',
+  '&.Mui-selected': {
+    color: '#2196f3', // Blue color for selected tab
+  },
+}));
+
 function CompletedProjectsWidget({ categorizedProjects }) {
   const [selectedTab, setSelectedTab] = useState(0);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleTabChange = (event, newValue) => {
     setSelectedTab(newValue);
@@ -44,17 +69,22 @@ function CompletedProjectsWidget({ categorizedProjects }) {
       <Typography variant="h6" fontWeight="bold" className="mb-16">
         Completed Projects
       </Typography>
-      <Tabs
+      <StyledTabs
         value={selectedTab}
         onChange={handleTabChange}
         indicatorColor="primary"
         textColor="primary"
+        orientation={isMobile ? "vertical" : "horizontal"}
         variant="fullWidth"
       >
         {projectCategories.map((category, index) => (
-          <Tab key={index} label={category} />
+          <StyledTab 
+            key={index} 
+            label={category}
+            style={{ whiteSpace: 'normal', textTransform: 'none' }}  // Allow text to wrap
+          />
         ))}
-      </Tabs>
+      </StyledTabs>
       {projectCategories.map((category, index) => (
         <div key={category} style={{ display: selectedTab === index ? 'block' : 'none' }}>
           <Grid container spacing={2}>

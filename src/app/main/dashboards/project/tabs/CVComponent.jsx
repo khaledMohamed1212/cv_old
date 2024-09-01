@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Grid, Box, Divider, Chip, Link as MuiLink } from '@mui/material';
+import { Typography, Grid, Box, Divider, Chip, Link as MuiLink, useMediaQuery, useTheme } from '@mui/material';
 import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
 import LaptopMacIcon from '@mui/icons-material/LaptopMac';
@@ -36,8 +36,6 @@ const SectionTitle = styled(Box)(({ theme }) => ({
   },
 }));
 
-
-
 const TechnologyChip = styled(Chip)({
   margin: '4px',
   borderRadius: '5px',
@@ -45,11 +43,16 @@ const TechnologyChip = styled(Chip)({
   backgroundColor: '#f0f0f0',
 });
 
-const Minipage = styled(Box)(({ width }) => ({
+const Minipage = styled(Box)(({ width, theme }) => ({
   width: width,
   display: 'inline-block',
   verticalAlign: 'top',
   marginRight: '2rem',
+  [theme.breakpoints.down('sm')]: {
+    width: '100%',
+    marginRight: 0,
+    marginBottom: '0.5rem',
+  },
 }));
 
 function Objective() {
@@ -71,7 +74,7 @@ function Education() {
       years: "2019-2024",
       gpa: "3.94/4.0",
       thesis: {
-        title: "A Robust Framework for Automatic Recognition of Car License Plate Numbers at Security Gates: Zewail City’s Campus as a Case Study",
+        title: "A Robust Framework for Automatic Recognition of Car License Plate Numbers at Security Gates: Zewail City's Campus as a Case Study",
         description: "A practical approach to recognizing Arabic license plates in surveillance footage, particularly when these plates are captured from high angles or elevations by surveillance cameras.",
         duties: [
           "Development of a robust framework for license plate recognition and a method for correction of tilt discrepancies",
@@ -89,14 +92,17 @@ function Education() {
     },
   ];
 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <Box>
       {education.map((edu, index) => (
         <Box key={index} mb={3}>
-          <Minipage width="12em">
+          <Minipage width={isMobile ? "100%" : "12em"}>
             <Typography variant="body2">{edu.years}</Typography>
           </Minipage>
-          <Minipage width="calc(100% - 12em - 4rem)">
+          <Minipage width={isMobile ? "100%" : "calc(100% - 12em - 4rem)"}>
             <Typography variant="body2" fontWeight="bold">{edu.degree}</Typography>
             <Typography variant="body2">{edu.school}</Typography>
             <Typography variant="body2">GPA: {edu.gpa}</Typography>
@@ -159,18 +165,19 @@ function Experience() {
         "Taught Operating Systems, Computer Networks, Databases, and Algorithms and Data Structures."
       ]
     }
-    
   ];
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <Box>
       {experience.map((exp, index) => (
         <Box key={index} mb={3}>
-          <Minipage width="12em">
+          <Minipage width={isMobile ? "100%" : "12em"}>
             <Typography variant="body2">{exp.start} - {exp.end}</Typography>
           </Minipage>
-          {/* <VerticalDivider orientation="vertical" /> */}
-          <Minipage width="calc(100% - 12em - 4rem)">
+          <Minipage width={isMobile ? "100%" : "calc(100% - 12em - 4rem)"}>
             <Typography variant="body2" fontWeight="bold">{exp.role}</Typography>
             <Typography variant="body2">{exp.company}</Typography>
             <Box mt={1}>
@@ -194,12 +201,14 @@ function Experience() {
   );
 }
 
-
 function CVComponent() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
-    <div className='' >
+    <div className=''>
       <Objective />
-      <Grid container spacing={10}>
+      <Grid container spacing={isMobile ? 4 : 10}>
         <Grid item xs={12} md={6}>
           <SectionTitle variant="h6"><WorkIcon style={{ color: '#1E90FF' }}/> WORK SUMMARY</SectionTitle>
           <Experience />
@@ -208,9 +217,6 @@ function CVComponent() {
           <SectionTitle variant="h6"><SchoolIcon  style={{ color: '#1E90FF' }}/> EDUCATION</SectionTitle>
           <Education />
         </Grid>
-        {/* <Grid item xs={12}>
-          <Links />
-        </Grid> */}
       </Grid>
     </div>
   );

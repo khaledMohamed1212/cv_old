@@ -61,16 +61,16 @@ function ProjectDashboardAppHeader({ primaryTab, onPrimaryTabChange }) {
                             height: 128,
                         }}
                         alt="User Photo"
-                        src={user?.data?.photoURL}
+                        src={"assets/images/avatars/khaled_photo.jfif"}
                     >
-                        {user?.data?.displayName?.[0]}
+                        {`Khaled Hefnawy`}
                     </Avatar>
                     <Typography
                         className="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug truncate text-center"
                     >
                         {`Khaled Hefnawy`}
                     </Typography>
-                    <Links/>
+                    {/* <Links/> */}
                 </div>
             </div>
 
